@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,71 +6,1020 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111827">
 <title>Project Records</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f3f4f6;color:#111827}
-header{background:#111827;color:white;padding:22px 18px 18px;position:sticky;top:0;z-index:5}
-h1{font-size:24px;margin:0 0 4px}.sub{opacity:.75;font-size:13px}
-main{padding:16px;max-width:760px;margin:auto}.card{background:white;border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px #0000000d}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#f9fafb;border-radius:12px;padding:12px}.label{font-size:12px;color:#6b7280}.value{font-size:20px;font-weight:700;margin-top:4px}
-button{border:0;border-radius:11px;padding:12px 14px;font-weight:700;cursor:pointer}.primary{background:#111827;color:white}.secondary{background:#e5e7eb;color:#111827}.danger{background:#fee2e2;color:#991b1b}
-input,select,textarea{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;margin-top:6px;font-size:16px;background:white}label{display:block;font-size:13px;color:#4b5563;margin:10px 0}
-.row{display:flex;gap:8px;align-items:center;justify-content:space-between}.section-title{font-size:17px;font-weight:800;margin-bottom:10px}.item{padding:12px 0;border-top:1px solid #e5e7eb}.item:first-child{border-top:0}.small{font-size:12px;color:#6b7280}.amount{font-weight:800}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-#app{display:none}.empty{text-align:center;color:#6b7280;padding:20px}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#f3f4f6;
+  color:#111827
+}
+header{
+  background:#111827;
+  color:white;
+  padding:22px 18px 18px;
+  position:sticky;
+  top:0;
+  z-index:5
+}
+h1{font-size:24px;margin:0 0 4px}
+.sub{opacity:.75;font-size:13px}
+main{padding:16px;max-width:760px;margin:auto}
+.card{
+  background:white;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 2px 10px #0000000d
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+.stat{
+  background:#f9fafb;
+  border-radius:12px;
+  padding:12px
+}
+.label{font-size:12px;color:#6b7280}
+.value{font-size:20px;font-weight:700;margin-top:4px}
+button{
+  border:0;
+  border-radius:11px;
+  padding:11px 14px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px
+}
+.primary{background:#111827;color:white}
+.secondary{background:#e5e7eb;color:#111827}
+.danger{background:#fee2e2;color:#991b1b}
+.edit{background:#dbeafe;color:#1d4ed8}
+.success{background:#dcfce7;color:#166534}
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  margin-top:6px;
+  font-size:16px;
+  background:white
+}
+textarea{min-height:90px;resize:vertical}
+label{
+  display:block;
+  font-size:13px;
+  color:#4b5563;
+  margin:10px 0
+}
+.row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:space-between
+}
+.section-title{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:10px
+}
+.item{
+  padding:12px 0;
+  border-top:1px solid #e5e7eb
+}
+.item:first-child{border-top:0}
+.small{font-size:12px;color:#6b7280}
+.amount{font-weight:800}
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px
+}
+.empty{
+  text-align:center;
+  color:#6b7280;
+  padding:20px
+}
+.form-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+  flex-wrap:wrap
+}
+.badge{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  background:#f3f4f6;
+  color:#4b5563
+}
+.modal{
+  position:fixed;
+  inset:0;
+  background:#00000066;
+  z-index:20;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:0
+}
+.modal-box{
+  width:100%;
+  max-width:760px;
+  background:white;
+  border-radius:20px 20px 0 0;
+  padding:18px;
+  max-height:92vh;
+  overflow:auto
+}
+.modal-title{
+  font-size:19px;
+  font-weight:800;
+  margin-bottom:10px
+}
+.hidden{display:none!important}
+@media(min-width:700px){
+  .modal{align-items:center;padding:20px}
+  .modal-box{border-radius:20px}
+}
 </style>
 </head>
+
 <body>
-<header><h1>PROJECT RECORDS</h1><div class="sub">Private project & profit tracker</div></header>
+
+<header>
+  <h1>PROJECT RECORDS</h1>
+  <div class="sub">Private project & profit tracker</div>
+</header>
+
 <main>
-<div id="app"></div>
-<div id="setup" class="card">
-  <div class="section-title">Create your first project</div>
-  <label>Project name<input id="pname" value="217B CENTRAL GARDEN AVENUE"></label>
-  <label>Contract value (SGD)<input id="contract" type="number" value="8000"></label>
-  <button class="primary" onclick="createProject()">Create Project</button>
-</div>
+  <div id="app"></div>
+
+  <div id="setup" class="card">
+    <div class="section-title">Create your first project</div>
+
+    <label>
+      Project name
+      <input id="pname" value="217B CENTRAL GARDEN AVENUE">
+    </label>
+
+    <label>
+      Contract value (SGD)
+      <input id="contract" type="number" value="8000">
+    </label>
+
+    <button class="primary" onclick="createProject()">
+      Create Project
+    </button>
+  </div>
 </main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <div id="modalContent"></div>
+  </div>
+</div>
+
 <script>
 const KEY="project_records_v1";
+
 let data=JSON.parse(localStorage.getItem(KEY)||"null");
-const money=n=>"SGD "+Number(n||0).toLocaleString("en-SG",{minimumFractionDigits:2,maximumFractionDigits:2});
-function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
-function createProject(){data={projects:[{id:Date.now(),name:document.getElementById("pname").value||"New Project",contract:+document.getElementById("contract").value||0,payments:[],expenses:[],invoices:[],notes:[]}],active:0};save()}
-function current(){return data.projects[data.active]}
-function total(a){return a.reduce((s,x)=>s+Number(x.amount||0),0)}
-function addPayment(){let p=current(),a=prompt("Payment received amount (SGD)");if(a===null)return;let d=prompt("Description (e.g. Deposit)","Deposit");p.payments.push({amount:+a||0,desc:d||"Payment",date:new Date().toLocaleDateString("en-SG")});save()}
-function addExpense(){let p=current(),a=prompt("Expense amount (SGD)");if(a===null)return;let desc=prompt("Description","Hardware materials");let cat=prompt("Category","Materials");p.expenses.push({amount:+a||0,desc:desc||"Expense",cat:cat||"Other",date:new Date().toLocaleDateString("en-SG")});save()}
-function addInvoice(){let p=current(),a=prompt("Invoice amount (SGD)");if(a===null)return;let no=prompt("Invoice number","INV-001");p.invoices.push({amount:+a||0,no:no||"Invoice",date:new Date().toLocaleDateString("en-SG")});save()}
-function addProject(){let n=prompt("New project name");if(!n)return;let c=prompt("Contract value (SGD)","0");data.projects.push({id:Date.now(),name:n,contract:+c||0,payments:[],expenses:[],invoices:[],notes:[]});data.active=data.projects.length-1;save()}
-function deleteExpense(i){if(confirm("Delete this expense?")){current().expenses.splice(i,1);save()}}
-function render(){
- if(!data){document.getElementById("setup").style.display="block";document.getElementById("app").style.display="none";return}
- document.getElementById("setup").style.display="none";document.getElementById("app").style.display="block";
- let p=current(),received=total(p.payments),expenses=total(p.expenses),profit=p.contract-expenses,outstanding=p.contract-received,margin=p.contract?profit/p.contract*100:0;
- document.getElementById("app").innerHTML=`
- <div class="card">
-   <div class="row"><div><div class="section-title">${esc(p.name)}</div><div class="small">Project ${data.active+1} of ${data.projects.length}</div></div><button class="secondary" onclick="addProject()">＋ Project</button></div>
- </div>
- <div class="card"><div class="section-title">📊 Dashboard</div>
-   <div class="grid">
-    <div class="stat"><div class="label">Contract</div><div class="value">${money(p.contract)}</div></div>
-    <div class="stat"><div class="label">Received</div><div class="value">${money(received)}</div></div>
-    <div class="stat"><div class="label">Expenses</div><div class="value">${money(expenses)}</div></div>
-    <div class="stat"><div class="label">Actual Profit</div><div class="value">${money(profit)}</div></div>
-    <div class="stat"><div class="label">Outstanding</div><div class="value">${money(outstanding)}</div></div>
-    <div class="stat"><div class="label">Profit Margin</div><div class="value">${margin.toFixed(1)}%</div></div>
-   </div>
- </div>
- <div class="card"><div class="section-title">💵 Payments</div><button class="primary" onclick="addPayment()">＋ Add Payment</button>
- ${p.payments.map(x=>`<div class="item"><span>${esc(x.desc)} <span class="small">${x.date}</span></span><span class="amount">${money(x.amount)}</span></div>`).join("")||'<div class="empty">No payments yet</div>'}</div>
- <div class="card"><div class="section-title">💳 Expenses</div><button class="primary" onclick="addExpense()">＋ Add Expense</button>
- ${p.expenses.map((x,i)=>`<div class="item"><div class="row"><span><b>${esc(x.desc)}</b><br><span class="small">${esc(x.cat)} · ${x.date}</span></span><span class="amount">${money(x.amount)}</span></div><div class="actions"><button class="danger" onclick="deleteExpense(${i})">Delete</button></div></div>`).join("")||'<div class="empty">No expenses yet</div>'}</div>
- <div class="card"><div class="section-title">🧾 Invoices</div><button class="primary" onclick="addInvoice()">＋ Add Invoice</button>
- ${p.invoices.map(x=>`<div class="item"><span>${esc(x.no)} <span class="small">${x.date}</span></span><span class="amount">${money(x.amount)}</span></div>`).join("")||'<div class="empty">No invoices yet</div>'}</div>
- <div class="card"><div class="section-title">📁 Project Records</div><div class="small">Use your WhatsApp project group for photos, drawings, materials, progress and completion records. This app handles the structured financial calculation.</div></div>
- <div class="card"><div class="section-title">Projects</div><select onchange="data.active=+this.value;save()">${data.projects.map((x,i)=>`<option value="${i}" ${i===data.active?"selected":""}>${esc(x.name)}</option>`).join("")}</select></div>
- `;
+
+const money=n =>
+  "SGD "+Number(n||0).toLocaleString("en-SG",{
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  });
+
+function save(){
+  localStorage.setItem(KEY,JSON.stringify(data));
+  render();
 }
-function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+
+function today(){
+  return new Date().toLocaleDateString("en-SG");
+}
+
+function uid(){
+  return Date.now()+Math.floor(Math.random()*10000);
+}
+
+function total(a){
+  return (a||[]).reduce((s,x)=>s+Number(x.amount||0),0);
+}
+
+function current(){
+  return data.projects[data.active];
+}
+
+function esc(s){
+  return String(s??"").replace(/[&<>"']/g,m=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  }[m]));
+}
+
+/* ---------- PROJECT ---------- */
+
+function createProject(){
+  const name=document.getElementById("pname").value.trim();
+  const contract=Number(document.getElementById("contract").value)||0;
+
+  data={
+    projects:[{
+      id:uid(),
+      name:name||"New Project",
+      contract:contract,
+      payments:[],
+      expenses:[],
+      invoices:[],
+      notes:[]
+    }],
+    active:0
+  };
+
+  save();
+}
+
+function addProject(){
+  openModal(`
+    <div class="modal-title">Add Project</div>
+
+    <label>
+      Project name
+      <input id="mName" placeholder="Project name">
+    </label>
+
+    <label>
+      Contract value (SGD)
+      <input id="mContract" type="number" placeholder="0">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveNewProject()">Save Project</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveNewProject(){
+  const name=document.getElementById("mName").value.trim();
+  const contract=Number(document.getElementById("mContract").value)||0;
+
+  if(!name){
+    alert("Please enter project name.");
+    return;
+  }
+
+  data.projects.push({
+    id:uid(),
+    name:name,
+    contract:contract,
+    payments:[],
+    expenses:[],
+    invoices:[],
+    notes:[]
+  });
+
+  data.active=data.projects.length-1;
+
+  closeModal();
+  save();
+}
+
+function editProject(){
+  const p=current();
+
+  openModal(`
+    <div class="modal-title">Edit Project Information</div>
+
+    <label>
+      Project name
+      <input id="mName" value="${esc(p.name)}">
+    </label>
+
+    <label>
+      Contract value (SGD)
+      <input id="mContract" type="number" value="${Number(p.contract)||0}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveProjectEdit()">Save Changes</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveProjectEdit(){
+  const p=current();
+
+  p.name=document.getElementById("mName").value.trim()||p.name;
+  p.contract=Number(document.getElementById("mContract").value)||0;
+
+  closeModal();
+  save();
+}
+
+function deleteProject(){
+  if(data.projects.length===1){
+    alert("You cannot delete the last project.");
+    return;
+  }
+
+  if(!confirm("Delete this entire project and all its records?")) return;
+
+  data.projects.splice(data.active,1);
+
+  if(data.active>=data.projects.length){
+    data.active=data.projects.length-1;
+  }
+
+  save();
+}
+
+/* ---------- PAYMENT ---------- */
+
+function addPayment(){
+  openModal(`
+    <div class="modal-title">Add Payment / Deposit</div>
+
+    <label>
+      Amount (SGD)
+      <input id="mAmount" type="number" step="0.01">
+    </label>
+
+    <label>
+      Description
+      <input id="mDesc" value="Deposit">
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${today()}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveNewPayment()">Add Payment</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveNewPayment(){
+  const p=current();
+
+  const amount=Number(document.getElementById("mAmount").value)||0;
+
+  if(amount<=0){
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+  p.payments.push({
+    id:uid(),
+    amount:amount,
+    desc:document.getElementById("mDesc").value.trim()||"Payment",
+    date:document.getElementById("mDate").value||today()
+  });
+
+  closeModal();
+  save();
+}
+
+function editPayment(i){
+  const p=current();
+  const x=p.payments[i];
+
+  openModal(`
+    <div class="modal-title">Edit Payment</div>
+
+    <label>
+      Amount (SGD)
+      <input id="mAmount" type="number" step="0.01" value="${Number(x.amount)||0}">
+    </label>
+
+    <label>
+      Description
+      <input id="mDesc" value="${esc(x.desc)}">
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${esc(x.date)}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="savePaymentEdit(${i})">Save Changes</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function savePaymentEdit(i){
+  const x=current().payments[i];
+
+  x.amount=Number(document.getElementById("mAmount").value)||0;
+  x.desc=document.getElementById("mDesc").value.trim()||"Payment";
+  x.date=document.getElementById("mDate").value||today();
+
+  closeModal();
+  save();
+}
+
+function deletePayment(i){
+  if(!confirm("Delete this payment?")) return;
+
+  current().payments.splice(i,1);
+  save();
+}
+
+/* ---------- EXPENSE ---------- */
+
+function addExpense(){
+  openModal(`
+    <div class="modal-title">Add Expense</div>
+
+    <label>
+      Amount (SGD)
+      <input id="mAmount" type="number" step="0.01">
+    </label>
+
+    <label>
+      Description
+      <input id="mDesc" value="Hardware materials">
+    </label>
+
+    <label>
+      Category
+      <input id="mCat" value="Materials">
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${today()}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveNewExpense()">Add Expense</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveNewExpense(){
+  const p=current();
+  const amount=Number(document.getElementById("mAmount").value)||0;
+
+  if(amount<=0){
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+  p.expenses.push({
+    id:uid(),
+    amount:amount,
+    desc:document.getElementById("mDesc").value.trim()||"Expense",
+    cat:document.getElementById("mCat").value.trim()||"Other",
+    date:document.getElementById("mDate").value||today()
+  });
+
+  closeModal();
+  save();
+}
+
+function editExpense(i){
+  const x=current().expenses[i];
+
+  openModal(`
+    <div class="modal-title">Edit Expense</div>
+
+    <label>
+      Amount (SGD)
+      <input id="mAmount" type="number" step="0.01" value="${Number(x.amount)||0}">
+    </label>
+
+    <label>
+      Description
+      <input id="mDesc" value="${esc(x.desc)}">
+    </label>
+
+    <label>
+      Category
+      <input id="mCat" value="${esc(x.cat)}">
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${esc(x.date)}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveExpenseEdit(${i})">Save Changes</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveExpenseEdit(i){
+  const x=current().expenses[i];
+
+  x.amount=Number(document.getElementById("mAmount").value)||0;
+  x.desc=document.getElementById("mDesc").value.trim()||"Expense";
+  x.cat=document.getElementById("mCat").value.trim()||"Other";
+  x.date=document.getElementById("mDate").value||today();
+
+  closeModal();
+  save();
+}
+
+function deleteExpense(i){
+  if(!confirm("Delete this expense?")) return;
+
+  current().expenses.splice(i,1);
+  save();
+}
+
+/* ---------- INVOICE ---------- */
+
+function addInvoice(){
+  openModal(`
+    <div class="modal-title">Add Invoice</div>
+
+    <label>
+      Invoice amount (SGD)
+      <input id="mAmount" type="number" step="0.01">
+    </label>
+
+    <label>
+      Invoice number
+      <input id="mNo" value="INV-001">
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${today()}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveNewInvoice()">Add Invoice</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveNewInvoice(){
+  const p=current();
+  const amount=Number(document.getElementById("mAmount").value)||0;
+
+  if(amount<=0){
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+  p.invoices.push({
+    id:uid(),
+    amount:amount,
+    no:document.getElementById("mNo").value.trim()||"Invoice",
+    date:document.getElementById("mDate").value||today()
+  });
+
+  closeModal();
+  save();
+}
+
+function editInvoice(i){
+  const x=current().invoices[i];
+
+  openModal(`
+    <div class="modal-title">Edit Invoice</div>
+
+    <label>
+      Invoice amount (SGD)
+      <input id="mAmount" type="number" step="0.01" value="${Number(x.amount)||0}">
+    </label>
+
+    <label>
+      Invoice number
+      <input id="mNo" value="${esc(x.no)}">
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${esc(x.date)}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveInvoiceEdit(${i})">Save Changes</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveInvoiceEdit(i){
+  const x=current().invoices[i];
+
+  x.amount=Number(document.getElementById("mAmount").value)||0;
+  x.no=document.getElementById("mNo").value.trim()||"Invoice";
+  x.date=document.getElementById("mDate").value||today();
+
+  closeModal();
+  save();
+}
+
+function deleteInvoice(i){
+  if(!confirm("Delete this invoice?")) return;
+
+  current().invoices.splice(i,1);
+  save();
+}
+
+/* ---------- PROJECT RECORDS / NOTES ---------- */
+
+function addNote(){
+  openModal(`
+    <div class="modal-title">Add Project Record</div>
+
+    <label>
+      Record title
+      <input id="mTitle" placeholder="e.g. Kitchen installation">
+    </label>
+
+    <label>
+      Details
+      <textarea id="mText" placeholder="Write project progress, materials, drawings, completion notes, etc."></textarea>
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${today()}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveNewNote()">Add Record</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveNewNote(){
+  const p=current();
+
+  const title=document.getElementById("mTitle").value.trim();
+
+  if(!title){
+    alert("Please enter a record title.");
+    return;
+  }
+
+  p.notes=p.notes||[];
+
+  p.notes.push({
+    id:uid(),
+    title:title,
+    text:document.getElementById("mText").value.trim(),
+    date:document.getElementById("mDate").value||today()
+  });
+
+  closeModal();
+  save();
+}
+
+function editNote(i){
+  const p=current();
+  p.notes=p.notes||[];
+
+  const x=p.notes[i];
+
+  openModal(`
+    <div class="modal-title">Edit Project Record</div>
+
+    <label>
+      Record title
+      <input id="mTitle" value="${esc(x.title)}">
+    </label>
+
+    <label>
+      Details
+      <textarea id="mText">${esc(x.text)}</textarea>
+    </label>
+
+    <label>
+      Date
+      <input id="mDate" value="${esc(x.date)}">
+    </label>
+
+    <div class="form-actions">
+      <button class="primary" onclick="saveNoteEdit(${i})">Save Changes</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  `);
+}
+
+function saveNoteEdit(i){
+  const x=current().notes[i];
+
+  x.title=document.getElementById("mTitle").value.trim()||"Project Record";
+  x.text=document.getElementById("mText").value.trim();
+  x.date=document.getElementById("mDate").value||today();
+
+  closeModal();
+  save();
+}
+
+function deleteNote(i){
+  if(!confirm("Delete this project record?")) return;
+
+  current().notes.splice(i,1);
+  save();
+}
+
+/* ---------- MODAL ---------- */
+
+function openModal(html){
+  document.getElementById("modalContent").innerHTML=html;
+  document.getElementById("modal").classList.remove("hidden");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.add("hidden");
+  document.getElementById("modalContent").innerHTML="";
+}
+
+/* ---------- RENDER ---------- */
+
+function render(){
+
+  if(!data || !data.projects || !data.projects.length){
+    document.getElementById("setup").style.display="block";
+    document.getElementById("app").style.display="none";
+    return;
+  }
+
+  document.getElementById("setup").style.display="none";
+  document.getElementById("app").style.display="block";
+
+  if(typeof data.active!=="number") data.active=0;
+  if(data.active<0 || data.active>=data.projects.length) data.active=0;
+
+  const p=current();
+
+  p.payments=p.payments||[];
+  p.expenses=p.expenses||[];
+  p.invoices=p.invoices||[];
+  p.notes=p.notes||[];
+
+  const received=total(p.payments);
+  const expenses=total(p.expenses);
+
+  const profit=Number(p.contract||0)-expenses;
+  const outstanding=Number(p.contract||0)-received;
+  const margin=Number(p.contract||0)
+    ? profit/Number(p.contract||0)*100
+    : 0;
+
+  document.getElementById("app").innerHTML=`
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <div class="section-title">${esc(p.name)}</div>
+        <div class="small">
+          Project ${data.active+1} of ${data.projects.length}
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="edit" onclick="editProject()">Edit</button>
+        <button class="secondary" onclick="addProject()">＋ Project</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">📊 Dashboard</div>
+
+    <div class="grid">
+
+      <div class="stat">
+        <div class="label">Contract</div>
+        <div class="value">${money(p.contract)}</div>
+      </div>
+
+      <div class="stat">
+        <div class="label">Received</div>
+        <div class="value">${money(received)}</div>
+      </div>
+
+      <div class="stat">
+        <div class="label">Expenses</div>
+        <div class="value">${money(expenses)}</div>
+      </div>
+
+      <div class="stat">
+        <div class="label">Actual Profit</div>
+        <div class="value">${money(profit)}</div>
+      </div>
+
+      <div class="stat">
+        <div class="label">Outstanding</div>
+        <div class="value">${money(outstanding)}</div>
+      </div>
+
+      <div class="stat">
+        <div class="label">Profit Margin</div>
+        <div class="value">${margin.toFixed(1)}%</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="section-title">💵 Payments / Deposits</div>
+      <button class="primary" onclick="addPayment()">＋ Add</button>
+    </div>
+
+    ${
+      p.payments.map((x,i)=>`
+
+      <div class="item">
+
+        <div class="row">
+          <span>
+            <b>${esc(x.desc)}</b>
+            <br>
+            <span class="small">${esc(x.date)}</span>
+          </span>
+
+          <span class="amount">${money(x.amount)}</span>
+        </div>
+
+        <div class="actions">
+          <button class="edit" onclick="editPayment(${i})">Edit</button>
+          <button class="danger" onclick="deletePayment(${i})">Delete</button>
+        </div>
+
+      </div>
+
+      `).join("")
+      || '<div class="empty">No payments yet</div>'
+    }
+
+  </div>
+
+  <div class="card">
+
+    <div class="row">
+      <div class="section-title">💳 Expenses</div>
+      <button class="primary" onclick="addExpense()">＋ Add</button>
+    </div>
+
+    ${
+      p.expenses.map((x,i)=>`
+
+      <div class="item">
+
+        <div class="row">
+          <span>
+            <b>${esc(x.desc)}</b>
+            <br>
+            <span class="small">
+              ${esc(x.cat)} · ${esc(x.date)}
+            </span>
+          </span>
+
+          <span class="amount">${money(x.amount)}</span>
+        </div>
+
+        <div class="actions">
+          <button class="edit" onclick="editExpense(${i})">Edit</button>
+          <button class="danger" onclick="deleteExpense(${i})">Delete</button>
+        </div>
+
+      </div>
+
+      `).join("")
+      || '<div class="empty">No expenses yet</div>'
+    }
+
+  </div>
+
+  <div class="card">
+
+    <div class="row">
+      <div class="section-title">🧾 Invoices</div>
+      <button class="primary" onclick="addInvoice()">＋ Add</button>
+    </div>
+
+    ${
+      p.invoices.map((x,i)=>`
+
+      <div class="item">
+
+        <div class="row">
+          <span>
+            <b>${esc(x.no)}</b>
+            <br>
+            <span class="small">${esc(x.date)}</span>
+          </span>
+
+          <span class="amount">${money(x.amount)}</span>
+        </div>
+
+        <div class="actions">
+          <button class="edit" onclick="editInvoice(${i})">Edit</button>
+          <button class="danger" onclick="deleteInvoice(${i})">Delete</button>
+        </div>
+
+      </div>
+
+      `).join("")
+      || '<div class="empty">No invoices yet</div>'
+    }
+
+  </div>
+
+  <div class="card">
+
+    <div class="row">
+      <div class="section-title">📁 Project Records</div>
+      <button class="primary" onclick="addNote()">＋ Add</button>
+    </div>
+
+    ${
+      p.notes.map((x,i)=>`
+
+      <div class="item">
+
+        <b>${esc(x.title)}</b>
+
+        <div class="small">${esc(x.date)}</div>
+
+        ${
+          x.text
+          ? `<div style="margin-top:7px;white-space:pre-wrap">${esc(x.text)}</div>`
+          : ""
+        }
+
+        <div class="actions">
+          <button class="edit" onclick="editNote(${i})">Edit</button>
+          <button class="danger" onclick="deleteNote(${i})">Delete</button>
+        </div>
+
+      </div>
+
+      `).join("")
+      || '<div class="empty">No project records yet</div>'
+    }
+
+  </div>
+
+  <div class="card">
+
+    <div class="section-title">Projects</div>
+
+    <select onchange="changeProject(this.value)">
+      ${
+        data.projects.map((x,i)=>`
+          <option value="${i}" ${i===data.active?"selected":""}>
+            ${esc(x.name)}
+          </option>
+        `).join("")
+      }
+    </select>
+
+    <div class="actions">
+
+      <button class="edit" onclick="editProject()">
+        Edit Project
+      </button>
+
+      <button class="danger" onclick="deleteProject()">
+        Delete Project
+      </button>
+
+    </div>
+
+  </div>
+
+  `;
+}
+
+function changeProject(value){
+  data.active=Number(value);
+  save();
+}
+
 render();
 </script>
-</body></html>
+
+</body>
+</html>
